@@ -1,7 +1,3 @@
-
-
-
-
 // import React, { useState, useEffect } from 'react';
 // import { Link, useLocation } from 'react-router-dom';
 // import axios from 'axios';
@@ -24,7 +20,7 @@
 //        const fetchClientProjects = async () => {
 //          try {
 //              const config = { headers: { Authorization: `Bearer ${token}` } };
-//              const { data } = await axios.get('http://localhost:5000/api/projects/client', config);
+//              const { data } = await axios.get('https://clp-beta.vercel.app/api/projects/client', config);
 //              setDbProjects(Array.isArray(data) ? data : []);
 //          } catch (err) {
 //              console.error("Error loading projects", err);
@@ -35,7 +31,7 @@
 //        };
 //        fetchClientProjects();
 //     } else {
-//       setLoading(false); 
+//       setLoading(false);
 //     }
 //   }, [limit, userRole, location.pathname]);
 
@@ -82,32 +78,35 @@
 
 // export default ClientProjectList;
 
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import ClientProjectCard from "./ClientProjectCard";
+import { sampleClientProjects } from "./sampleClientProjects";
+import "./ClientProjectList.css";
 
-
-
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import axios from 'axios';
-import ClientProjectCard from './ClientProjectCard';
-import { sampleClientProjects } from './sampleClientProjects';
-import './ClientProjectList.css';
-
-const ClientProjectList = ({ limit = 4, userRole }) => { // <-- Default limit set to 4
+const ClientProjectList = ({ limit = 4, userRole }) => {
+  // <-- Default limit set to 4
   const [dbProjects, setDbProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
     setLoading(true);
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
-    if (token && userRole === 'client') {
+    if (token && userRole === "client") {
       const fetchClientProjects = async () => {
         try {
           const config = { headers: { Authorization: `Bearer ${token}` } };
-          const { data } = await axios.get('http://localhost:5000/api/projects/client', config);
+          const { data } = await axios.get(
+            "https://clp-beta.vercel.app/api/projects/client",
+            config,
+          );
           // Filter for OPEN projects only
-          const openOnly = Array.isArray(data) ? data.filter(p => p.status === 'open') : [];
+          const openOnly = Array.isArray(data)
+            ? data.filter((p) => p.status === "open")
+            : [];
           setDbProjects(openOnly);
         } catch (err) {
           console.error("Error loading projects", err);
@@ -124,11 +123,15 @@ const ClientProjectList = ({ limit = 4, userRole }) => { // <-- Default limit se
   // --- LOGIC: Merge DB + Sample Data ---
 
   // 1. Sort DB projects by date (newest first)
-  const sortedDbProjects = dbProjects.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  const sortedDbProjects = dbProjects.sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+  );
 
   // 2. Combine: DB Projects FIRST, then fill remaining slots with Sample Projects
   // We explicitly filter sample projects for 'open' status just to be safe
-  const openSampleProjects = sampleClientProjects.filter(p => p.status === 'open');
+  const openSampleProjects = sampleClientProjects.filter(
+    (p) => p.status === "open",
+  );
   const allMixedProjects = [...sortedDbProjects, ...openSampleProjects];
 
   // 3. Slice to get exactly the 'limit' (e.g., 3 cards)
@@ -140,7 +143,9 @@ const ClientProjectList = ({ limit = 4, userRole }) => { // <-- Default limit se
       <div className="container">
         <div className="list-header">
           <h2>Your Latest Posted Projects (Open)</h2>
-          <Link to="/client/all-projects" className="see-more-link">See all &rarr;</Link>
+          <Link to="/client/all-projects" className="see-more-link">
+            See all &rarr;
+          </Link>
         </div>
 
         {loading && <p>Loading your projects...</p>}
@@ -151,11 +156,19 @@ const ClientProjectList = ({ limit = 4, userRole }) => { // <-- Default limit se
               <div className="client-project-cards-grid">
                 {displayProjects.map((project, index) => (
                   // Use index in key fallback to prevent duplicate key errors
-                  <ClientProjectCard key={project._id || `sample-${index}`} project={project} />
+                  <ClientProjectCard
+                    key={project._id || `sample-${index}`}
+                    project={project}
+                  />
                 ))}
               </div>
             ) : (
-              <p>You have no open projects. <Link to="/allocate-project" className="link-text">Allocate one now!</Link></p>
+              <p>
+                You have no open projects.{" "}
+                <Link to="/allocate-project" className="link-text">
+                  Allocate one now!
+                </Link>
+              </p>
             )}
           </>
         )}

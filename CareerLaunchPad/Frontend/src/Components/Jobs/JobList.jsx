@@ -17,7 +17,7 @@
 //         const fetchDualJobs = async () => {
 //             // --- STEP 1: INSTANTLY FETCH DATABASE JOBS ---
 //             try {
-//                 const { data: dbJobs } = await axios.get('http://localhost:5000/api/jobs');
+//                 const { data: dbJobs } = await axios.get('https://clp-beta.vercel.app/api/jobs');
 //                 setJobs(dbJobs.slice(0, limit)); // Show immediately
 //             } catch (err) {
 //                 console.error("Failed to load initial jobs:", err);
@@ -32,7 +32,7 @@
 //             setAiScanning(true); // Turn on the subtle background scanner
 //             try {
 //                 const config = { headers: { Authorization: `Bearer ${token}` } };
-//                 const { data: aiJobs } = await axios.get('http://localhost:5000/api/jobs/match-profile', config);
+//                 const { data: aiJobs } = await axios.get('https://clp-beta.vercel.app/api/jobs/match-profile', config);
 
 //                 if (Array.isArray(aiJobs) && aiJobs.length > 0) {
 //                     setJobs(aiJobs.slice(0, limit)); // Seamlessly swap the jobs!
@@ -112,7 +112,9 @@ const JobList = ({ limit = 3 }) => {
     const fetchDBJobs = async () => {
       try {
         // ONLY fetches from the local database (Super fast, 0 API tokens!)
-        const { data } = await axios.get("http://localhost:5000/api/jobs");
+        const { data } = await axios.get(
+          "https://clp-beta.vercel.app/api/jobs",
+        );
         setJobs(data.slice(0, limit));
       } catch (err) {
         console.error("Failed to load jobs:", err);
