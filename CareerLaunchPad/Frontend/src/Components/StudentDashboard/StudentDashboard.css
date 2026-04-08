@@ -1,0 +1,488 @@
+/* Student Dashboard Styles - Clean & Professional */
+
+.dashboard-container {
+  max-width: var(--max-width-xl);
+  margin: 0 auto;
+  padding: var(--space-8) 5%;
+  background-color: var(--background);
+  min-height: calc(100vh - 80px);
+}
+
+.dashboard-container h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.dashboard-container > p {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-8);
+}
+
+/* Project Section */
+.project-section {
+  margin-top: var(--space-8);
+  background-color: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.project-section h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  padding: var(--space-5) var(--space-6);
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--border-light);
+}
+
+/* Status Dots */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.status-pending-dot {
+  background-color: var(--warning);
+}
+
+.status-active-dot {
+  background-color: var(--success);
+}
+
+.status-completed-dot {
+  background-color: var(--text-muted);
+}
+
+.status-rejected-dot {
+  background-color: var(--error);
+}
+
+/* Table Styles */
+.table-responsive-wrapper {
+  overflow-x: auto;
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.projects-table th,
+.projects-table td {
+  padding: var(--space-4) var(--space-5);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.projects-table th {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--border-light);
+}
+
+.projects-table td {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+.projects-table tr:last-child td {
+  border-bottom: none;
+}
+
+.projects-table tr:hover {
+  background-color: var(--border-light);
+}
+
+.projects-table td[data-label="Title"] {
+  font-weight: 600;
+  white-space: normal;
+  min-width: 200px;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-open,
+.status-applied,
+.status-shortlisted {
+  background-color: var(--info-light);
+  color: var(--info);
+}
+
+.status-in-progress,
+.status-hired {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.status-completed {
+  background-color: var(--border-light);
+  color: var(--text-muted);
+}
+
+.status-submitted {
+  background-color: var(--warning-light);
+  color: var(--warning);
+}
+
+.status-rejected {
+  background-color: var(--error-light);
+  color: var(--error);
+}
+
+.status-unknown {
+  background-color: var(--border-light);
+  color: var(--text-muted);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.details-btn,
+.finish-btn,
+.submit-work-btn,
+.submitted-btn {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  border: none;
+}
+
+.details-btn {
+  background-color: var(--border-light);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.details-btn:hover {
+  background-color: var(--border);
+  color: var(--text-primary);
+}
+
+.finish-btn {
+  background-color: var(--success-light);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.finish-btn:hover:not(:disabled) {
+  background-color: var(--success);
+  color: var(--text-inverse);
+}
+
+.finish-btn:disabled {
+  background-color: var(--border-light);
+  color: var(--text-muted);
+  border-color: var(--border);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.submit-work-btn {
+  background-color: var(--success);
+  color: var(--text-inverse);
+}
+
+.submit-work-btn:hover {
+  background-color: #059669;
+}
+
+.submitted-btn {
+  background-color: var(--text-muted);
+  color: var(--text-inverse);
+  cursor: not-allowed;
+}
+
+.no-projects-message {
+  padding: var(--space-8);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.error-message {
+  color: var(--error);
+  background-color: var(--error-light);
+  border: 1px solid var(--error);
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-6);
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: var(--surface);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  width: 90%;
+  max-width: 500px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.modal-header h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-xl);
+  color: var(--text-muted);
+  transition: color var(--transition);
+  padding: var(--space-1);
+}
+
+.close-modal-btn:hover {
+  color: var(--text-primary);
+}
+
+.submission-form .form-group {
+  margin-bottom: var(--space-4);
+}
+
+.submission-form label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.submission-form input,
+.submission-form textarea {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition);
+}
+
+.submission-form input:focus,
+.submission-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.cancel-btn {
+  background: var(--border-light);
+  border: 1px solid var(--border);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+
+.cancel-btn:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.submit-btn:disabled {
+  background: var(--border);
+  cursor: not-allowed;
+}
+
+/* Rating Display */
+.rating-display {
+  text-align: center;
+  padding: var(--space-4);
+}
+
+.stars-display {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.review-text {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  font-style: italic;
+  padding: var(--space-4);
+  background: var(--border-light);
+  border-radius: var(--radius);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-container h1 {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: var(--space-6) var(--space-4);
+  }
+  
+  .project-section h2 {
+    font-size: var(--font-size-lg);
+    padding: var(--space-4);
+  }
+  
+  .projects-table th,
+  .projects-table td {
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  /* Mobile card layout */
+  .projects-table {
+    display: block;
+  }
+  
+  .projects-table thead {
+    display: none;
+  }
+  
+  .projects-table tbody {
+    display: block;
+  }
+  
+  .projects-table tr {
+    display: block;
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    background: var(--surface);
+  }
+  
+  .projects-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) 0;
+    border-bottom: none;
+    white-space: normal;
+  }
+  
+  .projects-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    margin-right: var(--space-4);
+  }
+  
+  .projects-table td[data-label="Title"] {
+    min-width: auto;
+  }
+  
+  .projects-table td[data-label="Actions"] {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  
+  .projects-table td[data-label="Actions"]::before {
+    display: none;
+  }
+  
+  .action-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container h1 {
+    font-size: var(--font-size-xl);
+  }
+  
+  .modal-content {
+    padding: var(--space-5);
+    margin: var(--space-4);
+  }
+}

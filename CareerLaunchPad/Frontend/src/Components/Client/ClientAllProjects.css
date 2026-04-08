@@ -1,0 +1,118 @@
+.client-all-projects-container {
+    max-width: 100%;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.client-all-projects-container h1 {
+    text-align: left;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.all-client-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.client-all-projects-container .no-projects-message {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+
+.client-all-projects-container .no-projects-message a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.client-all-projects-container .no-projects-message a:hover {
+    text-decoration: underline;
+}
+
+
+.back-btn-all-projects {
+    background: none;
+    border: none;
+    color: #1a73e8;
+    /* Primary blue */
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: text-decoration 0.2s ease;
+}
+
+.back-btn-all-projects:hover {
+    text-decoration: underline;
+}
+
+/* Header Section */
+.all-projects-header {
+    margin-bottom: 2rem;
+}
+
+/* Search Input Styling */
+.search-wrapper input {
+    font-size: 1rem;
+    transition: all var(--transition);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.search-wrapper input:focus {
+    outline: none;
+    border-color: var(--primary) !important;
+    box-shadow: 0 4px 8px rgba(13, 148, 136, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .all-client-projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .all-client-projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .client-all-projects-container {
+        padding: 1rem;
+    }
+
+    .all-projects-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .all-client-projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        min-height: auto;
+    }
+}
+
+.client-all-projects-container .error-message {
+    color: var(--error);
+    background-color: var(--error-light);
+    border: 1px solid var(--error);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+}

@@ -1,0 +1,131 @@
+.client-project-list-container {
+    max-width: 100%;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.list-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.see-more-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.see-more-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Grid Layout - 4 Cards Per Row */
+.client-project-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.client-project-list-container p {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+
+.client-project-list-container p.error-message {
+    color: var(--error);
+    background-color: var(--error-light);
+    border: 1px solid var(--error);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+}
+
+.client-project-list-container p a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.client-project-list-container p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .client-project-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .client-project-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .client-project-list-container {
+        padding: 0 1rem;
+    }
+
+    .list-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .list-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .client-project-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        min-height: auto;
+    }
+}
+
+/* Empty State Link */
+.link-text {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link-text:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.link-text {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link-text:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}

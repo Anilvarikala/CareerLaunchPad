@@ -1,0 +1,218 @@
+/* Job Card Styles - Clean & Professional */
+
+.job-card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  transition: all var(--transition);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 280px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.job-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.company-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  padding: 0.25rem;
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.job-role-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.company-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.location-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+  display: block;
+}
+
+.job-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-desc-short {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.job-card-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.job-skill-tag {
+  background-color: #dbeafe;
+  color: #3b82f6;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.job-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
+}
+
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 500;
+  color: var(--warning);
+}
+
+.view-job-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.view-job-btn:hover {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+}
+
+/* AI Match Score Section */
+.job-card .ai-match-section {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-light);
+}
+
+.job-card .match-score {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--success);
+}
+
+.job-card .ai-reason {
+  font-size: var(--font-size-xs);
+  color: var(--info);
+  font-style: italic;
+  margin-top: var(--space-2);
+  line-height: var(--leading-relaxed);
+}
+
+/* Job List Container */
+.job-list-container {
+  padding: var(--space-12) 5%;
+  background: var(--surface);
+}
+
+.job-list-container h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-8);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .job-card {
+    padding: var(--space-5);
+  }
+
+  .job-role-title {
+    font-size: var(--font-size-base);
+  }
+
+  .job-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .company-logo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .job-list-container {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .job-card {
+    padding: var(--space-4);
+  }
+
+  .job-card-header {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+}
